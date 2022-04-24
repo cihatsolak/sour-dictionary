@@ -6,11 +6,14 @@
 
         public SourDictionaryContext()
         {
-
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
         }
 
-        public SourDictionaryContext(DbContextOptions<SourDictionaryContext> options) : base(options)
+        public SourDictionaryContext(DbContextOptions options) : base(options)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -12,7 +12,10 @@
                 });
             });
 
+            SeedData seedData = new();
+            seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+
             return services;
-        } 
+        }
     }
 }
