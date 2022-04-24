@@ -6,7 +6,7 @@
         {
             base.Configure(builder);
 
-            builder.HasOne(p => p.CreatedBy).WithMany(p => p.EntryComments).HasForeignKey(p => p.CreatedById);
+            builder.HasOne(p => p.CreatedBy).WithMany(p => p.EntryComments).HasForeignKey(p => p.CreatedById).OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(p => p.Entry).WithMany(p => p.EntryComments).HasForeignKey(p => p.EntryId);
         }
     }

@@ -4,8 +4,29 @@
     {
         public const string DEFAULT_SCHEMA = "dbo";
 
-        public SourDictionaryContext(DbContextOptions<SourDictionaryContext> options) : base(options)
+        public SourDictionaryContext()
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+        }
+
+        public SourDictionaryContext(DbContextOptions options) : base(options)
+        {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql("User ID=admin;Password=Password123;Server=localhost;Port=5432;Database=sourdictionary;Integrated Security=true;Pooling=true", opt =>
+                {
+                    opt.EnableRetryOnFailure();
+                });
+            }
+
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,6 +88,5 @@
         public DbSet<EntryCommentFavorite> EntryCommentFavorites { get; set; }
 
         public DbSet<EmailConfirmation> EmailConfirmations { get; set; }
-
     }
 }

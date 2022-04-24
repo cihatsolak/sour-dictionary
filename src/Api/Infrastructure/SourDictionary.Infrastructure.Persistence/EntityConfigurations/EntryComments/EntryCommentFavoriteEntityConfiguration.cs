@@ -7,7 +7,7 @@
             base.Configure(builder);
 
             builder.HasOne(p => p.EntryComment).WithMany(p => p.EntryCommentFavorites).HasForeignKey(p => p.EntryCommentId);
-            builder.HasOne(p => p.CreatedUser).WithMany(p => p.EntryCommentFavorites).HasForeignKey(p => p.CreatedById);
+            builder.HasOne(p => p.CreatedUser).WithMany(p => p.EntryCommentFavorites).HasForeignKey(p => p.CreatedById).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
