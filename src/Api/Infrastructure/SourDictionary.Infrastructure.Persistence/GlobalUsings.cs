@@ -7,3 +7,6 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Bogus;
 global using SourDictionary.Common.Infrastructure;
+global using SourDictionary.Api.Application.Interfaces.Repositories;
+global using System.Linq.Expressions;
+global using SourDictionary.Infrastructure.Persistence.Repositories;

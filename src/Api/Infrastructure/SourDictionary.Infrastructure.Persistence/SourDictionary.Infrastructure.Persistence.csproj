@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\SourDictionary.Api.Application\SourDictionary.Api.Application.csproj" />
     <ProjectReference Include="..\..\Core\SourDictionary.Api.Domain\SourDictionary.Api.Domain.csproj" />
   </ItemGroup>
 
