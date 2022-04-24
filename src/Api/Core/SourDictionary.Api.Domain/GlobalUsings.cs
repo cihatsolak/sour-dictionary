@@ -1,0 +1,1 @@
+﻿global using SourDictionary.Common.ViewModels;
