@@ -12,8 +12,10 @@
                 });
             });
 
-            SeedData seedData = new();
-            seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+            //SeedData seedData = new();
+            //seedData.SeedAsync(configuration).GetAwaiter().GetResult();
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }
