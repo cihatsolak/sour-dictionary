@@ -4,8 +4,26 @@
     {
         public const string DEFAULT_SCHEMA = "dbo";
 
+        public SourDictionaryContext()
+        {
+
+        }
+
         public SourDictionaryContext(DbContextOptions<SourDictionaryContext> options) : base(options)
         {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql("User ID=admin;Password=Password123;Server=localhost;Port=5432;Database=sourdictionary;Integrated Security=true;Pooling=true", opt =>
+                {
+                    opt.EnableRetryOnFailure();
+                });
+            }
+
+            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,6 +85,5 @@
         public DbSet<EntryCommentFavorite> EntryCommentFavorites { get; set; }
 
         public DbSet<EmailConfirmation> EmailConfirmations { get; set; }
-
     }
 }
