@@ -2,8 +2,8 @@
 {
     public class LoginUserCommand : IRequest<LoginUserViewModel>
     {
-        public string EmailAddress { get; private set; }
-        public string Password { get; private set; }
+        public string EmailAddress { get; set; }
+        public string Password { get; set; }
 
         public LoginUserCommand(string emailAddress, string password)
         {
