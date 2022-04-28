@@ -2,7 +2,7 @@
 {
     public static class Registration
     {
-        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructureRegistiration(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SourDictionaryContext>(config =>
             {
