@@ -11,3 +11,8 @@ global using Microsoft.Extensions.Configuration;
 global using SourDictionary.Api.Application.Interfaces.Repositories;
 global using SourDictionary.Common.Infrastructure.Exceptions;
 global using SourDictionary.Common.Infrastructure;
+global using Microsoft.IdentityModel.Tokens;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Text;
+global using FluentValidation.Validators;
