@@ -1,2 +1,13 @@
 ﻿global using SourDictionary.Api.Domain.Models;
 global using System.Linq.Expressions;
+global using Microsoft.Extensions.DependencyInjection;
+global using MediatR;
+global using System.Reflection;
+global using FluentValidation;
+global using SourDictionary.Common.Models.Queries;
+global using SourDictionary.Common.Models.RequestModels;
+global using AutoMapper;
+global using Microsoft.Extensions.Configuration;
+global using SourDictionary.Api.Application.Interfaces.Repositories;
+global using SourDictionary.Common.Infrastructure.Exceptions;
+global using SourDictionary.Common.Infrastructure;
