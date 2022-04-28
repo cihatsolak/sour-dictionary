@@ -2,10 +2,10 @@
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly SourDictionaryContext _context;
+        private readonly DbContext _context;
         protected DbSet<TEntity> Entities => _context.Set<TEntity>();
 
-        public GenericRepository(SourDictionaryContext context)
+        public GenericRepository(DbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
