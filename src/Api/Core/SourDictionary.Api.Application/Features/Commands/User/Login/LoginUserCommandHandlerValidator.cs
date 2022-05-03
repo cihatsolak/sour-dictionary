@@ -1,4 +1,4 @@
-﻿namespace SourDictionary.Api.Application.Features.Commands.User
+﻿namespace SourDictionary.Api.Application.Features.Commands.User.Login
 {
     public class LoginUserCommandValidator : AbstractValidator<LoginUserCommand>
     {

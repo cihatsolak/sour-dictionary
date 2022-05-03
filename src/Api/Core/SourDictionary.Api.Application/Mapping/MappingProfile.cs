@@ -6,6 +6,12 @@
         {
             CreateMap<User, LoginUserViewModel>()
                 .ReverseMap();
+
+            CreateMap<User, CreateUserCommand>()
+                .ReverseMap();
+
+            CreateMap<User, UpdateUserCommand>()
+               .ReverseMap();
         }
     }
 }
