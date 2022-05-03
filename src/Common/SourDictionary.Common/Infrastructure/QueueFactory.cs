@@ -5,7 +5,7 @@
         public static void SendMessageToExchange<TModel>(string exchangeName, string exchangeType, string queueName, TModel model) where TModel : class, new()
         {
             IModel channel = CreateBasicConsumer()
-                         .EnsureExchange(exchangeName)
+                         .EnsureExchange(exchangeName, exchangeType)
                          .EnsureQueue(exchangeName, queueName)
                          .Model;
 

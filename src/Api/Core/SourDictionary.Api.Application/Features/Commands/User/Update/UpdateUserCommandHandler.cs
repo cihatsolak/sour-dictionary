@@ -17,10 +17,30 @@
             if (user is null)
                 throw new DatabaseValidationException("User not found!");
 
+            string currentEmailAdress = user.EmailAddress;
             _mapper.Map(request, user);
 
-            int row = await _userRepository.UpdateAsync(user);
-            // Check if email changed
+            bool succeeded = await _userRepository.UpdateAsync(user) > 0;
+            bool isEmailChanged = string.CompareOrdinal(currentEmailAdress, request.EmailAddress) > 0;
+
+            if (succeeded && isEmailChanged)
+            {
+                UserEmailChangedEvent userEmailChangedEvent = new()
+                {
+                    OldEmailAddress = currentEmailAdress,
+                    NewEmailAddress = request.EmailAddress
+                };
+
+                QueueFactory.SendMessageToExchange<UserEmailChangedEvent>(
+                                                  exchangeName: DictionaryConstants.UserExchangeName,
+                                                  exchangeType: DictionaryConstants.DefaultExchangeType,
+                                                  queueName: DictionaryConstants.UserEmailChangedQueueName,
+                                                  model: userEmailChangedEvent);
+
+                user.EmailConfirmed = false;
+                await _userRepository.UpdateAsync(user);
+            }
+
             return user.Id;
         }
     }
