@@ -1,4 +1,4 @@
-﻿namespace SourDictionary.Common.Events
+﻿namespace SourDictionary.Common.Events.User
 {
     public class UserWelcomeEmailEvent
     {
