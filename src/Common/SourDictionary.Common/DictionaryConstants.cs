@@ -16,5 +16,8 @@
         public const string UserEmailChangedQueueName = "UserEmailChangedQueue";
         public const string CreateEntryCommentFavoriteQueueName = "CreateEntryCommentFavoriteQueue";
         public const string CreateEntryVoteQueueName = "CreateEntryVoteQueue";
+        public const string DeleteEntryFavoriteQueueName = "DeleteEntryFavoriteQueue";
+        public const string DeleteEntryVoteQueueName = "DeleteEntryVoteQueue";
+        public const string CreateEntryCommentVoteQueueName = "CreateEntryCommentVoteQueue";
     }
 }

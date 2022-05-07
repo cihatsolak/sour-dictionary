@@ -15,6 +15,9 @@
 
             CreateMap<CreateEntryCommand, Entry>()
                 .ReverseMap();
+
+            CreateMap<CreateEntryCommentCommand, EntryComment>()
+                .ReverseMap();
         }
     }
 }

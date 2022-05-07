@@ -1,4 +1,4 @@
-﻿namespace SourDictionary.Common.Events.EntryComment
+﻿namespace SourDictionary.Common.Events.Entry
 {
     public class CreateEntryVoteEvent
     {
