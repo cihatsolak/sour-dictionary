@@ -4,3 +4,4 @@ global using MediatR;
 global using Microsoft.AspNetCore.Mvc;
 global using SourDictionary.Common.Models.RequestModels;
 global using FluentValidation.AspNetCore;
+global using System.Security.Claims;
