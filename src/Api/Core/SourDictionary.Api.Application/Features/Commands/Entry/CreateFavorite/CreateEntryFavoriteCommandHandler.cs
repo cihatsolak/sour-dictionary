@@ -1,17 +1,17 @@
 ﻿namespace SourDictionary.Api.Application.Features.Commands.Entry.CreateFavorite
 {
-    public class CreateEntryCommentFavoriteCommandHandler : IRequestHandler<CreateEntryCommentFavoriteCommand, bool>
+    public class CreateEntryFavoriteCommandHandler : IRequestHandler<CreateEntryFavoriteCommand, bool>
     {
-        public async Task<bool> Handle(CreateEntryCommentFavoriteCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreateEntryFavoriteCommand request, CancellationToken cancellationToken)
         {
             QueueFactory.SendMessageToExchange(
                 exchangeName: DictionaryConstants.FavoriteExchangeName,
                 exchangeType: DictionaryConstants.DefaultExchangeType,
-                queueName: DictionaryConstants.CreateEntryCommentFavoriteQueueName,
+                queueName: DictionaryConstants.CreateEntryFavoriteQueueName,
                 model: new CreateEntryFavoriteEvent()
                 {
-                    EntryCommentId = request.EntryCommentId,
-                    CreatedBy = request.UserId
+                    EntryId = request.EntryId.Value,
+                    CreatedBy = request.UserId.Value
                 }
             );
 

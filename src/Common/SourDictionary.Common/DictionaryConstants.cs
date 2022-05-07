@@ -15,6 +15,7 @@
         public const string UserWelcomeEmailQueueName = "UserWelcomeEmailQueue";
         public const string UserEmailChangedQueueName = "UserEmailChangedQueue";
         public const string CreateEntryCommentFavoriteQueueName = "CreateEntryCommentFavoriteQueue";
+        public const string CreateEntryFavoriteQueueName = "CreateEntryFavoriteQueue";
         public const string CreateEntryVoteQueueName = "CreateEntryVoteQueue";
         public const string DeleteEntryFavoriteQueueName = "DeleteEntryFavoriteQueue";
         public const string DeleteEntryVoteQueueName = "DeleteEntryVoteQueue";

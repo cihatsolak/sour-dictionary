@@ -4,7 +4,8 @@
     {
         public async Task<bool> Handle(CreateEntryVoteCommand request, CancellationToken cancellationToken)
         {
-            QueueFactory.SendMessageToExchange(exchangeName: DictionaryConstants.VoteExchangeName,
+            QueueFactory.SendMessageToExchange(
+                exchangeName: DictionaryConstants.VoteExchangeName,
                 exchangeType: DictionaryConstants.DefaultExchangeType,
                 queueName: DictionaryConstants.CreateEntryVoteQueueName,
                 model: new CreateEntryVoteEvent()
