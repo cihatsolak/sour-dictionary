@@ -8,7 +8,8 @@ global using Microsoft.IdentityModel.Tokens;
 global using SourDictionary.Api.Application.Interfaces.Repositories;
 global using SourDictionary.Api.Domain.Models;
 global using SourDictionary.Common;
-global using SourDictionary.Common.Events;
+global using SourDictionary.Common.Events.Entry;
+global using SourDictionary.Common.Events.User;
 global using SourDictionary.Common.Infrastructure;
 global using SourDictionary.Common.Infrastructure.Exceptions;
 global using SourDictionary.Common.Models.Queries;
@@ -18,3 +19,5 @@ global using System.Linq.Expressions;
 global using System.Reflection;
 global using System.Security.Claims;
 global using System.Text;
+global using SourDictionary.Common.Events.EntryComment;
+

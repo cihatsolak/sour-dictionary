@@ -12,6 +12,12 @@
 
             CreateMap<User, UpdateUserCommand>()
                .ReverseMap();
+
+            CreateMap<CreateEntryCommand, Entry>()
+                .ReverseMap();
+
+            CreateMap<CreateEntryCommentCommand, EntryComment>()
+                .ReverseMap();
         }
     }
 }
