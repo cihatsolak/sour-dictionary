@@ -19,5 +19,7 @@
         public const string DeleteEntryFavoriteQueueName = "DeleteEntryFavoriteQueue";
         public const string DeleteEntryVoteQueueName = "DeleteEntryVoteQueue";
         public const string CreateEntryCommentVoteQueueName = "CreateEntryCommentVoteQueue";
+        public const string DeleteEntryCommentFavQueueName = "DeleteEntryCommentFavQueue";
+        public const string DeleteEntryCommentVoteQueueName = "DeleteEntryCommentVoteQueue";
     }
 }

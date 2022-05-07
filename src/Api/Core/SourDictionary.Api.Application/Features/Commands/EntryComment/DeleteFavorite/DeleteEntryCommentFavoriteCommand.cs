@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SourDictionary.Api.Application.Features.Commands.EntryComment.DeleteFavorite
+﻿namespace SourDictionary.Api.Application.Features.Commands.EntryComment.DeleteFavorite
 {
-    internal class DeleteEntryCommentFavoriteCommand
+    public class DeleteEntryCommentFavCommand : IRequest<bool>
     {
+        public Guid EntryCommentId { get; set; }
+        public Guid UserId { get; set; }
+
+        public DeleteEntryCommentFavCommand(Guid entryCommentId, Guid userId)
+        {
+            EntryCommentId = entryCommentId;
+            UserId = userId;
+        }
     }
 }
