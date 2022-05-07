@@ -1,14 +1,14 @@
-﻿namespace SourDictionary.Api.Application.Features.Commands.Entry.CreateFav
+﻿namespace SourDictionary.Api.Application.Features.Commands.Entry.CreateFavorite
 {
-    public class CreateEntryCommentFavCommandHandler : IRequestHandler<CreateEntryCommentFavCommand, bool>
+    public class CreateEntryCommentFavoriteCommandHandler : IRequestHandler<CreateEntryCommentFavoriteCommand, bool>
     {
-        public async Task<bool> Handle(CreateEntryCommentFavCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreateEntryCommentFavoriteCommand request, CancellationToken cancellationToken)
         {
             QueueFactory.SendMessageToExchange(
                 exchangeName: DictionaryConstants.FavoriteExchangeName,
                 exchangeType: DictionaryConstants.DefaultExchangeType,
                 queueName: DictionaryConstants.CreateEntryCommentFavoriteQueueName,
-                model: new CreateEntryCommandFavoriteEvent()
+                model: new CreateEntryFavoriteEvent()
                 {
                     EntryCommentId = request.EntryCommentId,
                     CreatedBy = request.UserId
