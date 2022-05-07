@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Commands\Entry\Create\" />
     <Folder Include="Features\Queries\" />
   </ItemGroup>
 
