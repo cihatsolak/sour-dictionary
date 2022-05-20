@@ -10,16 +10,13 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SourDictionary.Api.Domain\SourDictionary.Api.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Queries\" />
   </ItemGroup>
 
 </Project>

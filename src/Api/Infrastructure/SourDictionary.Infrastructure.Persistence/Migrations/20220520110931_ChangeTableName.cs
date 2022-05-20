@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SourDictionary.Infrastructure.Persistence.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class ChangeTableName : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     OldEmailAddress = table.Column<string>(type: "text", nullable: true),
                     NewEmailAddress = table.Column<string>(type: "text", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     UserName = table.Column<string>(type: "text", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,7 +55,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     Subject = table.Column<string>(type: "text", nullable: true),
                     Content = table.Column<string>(type: "text", nullable: true),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,7 +78,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     Content = table.Column<string>(type: "text", nullable: true),
                     EntryId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,7 +107,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     EntryId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -137,7 +137,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     EntryId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     VoteType = table.Column<int>(type: "integer", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,7 +159,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     EntryCommentId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -189,7 +189,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
                     EntryCommentId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedById = table.Column<Guid>(type: "uuid", nullable: false),
                     VoteType = table.Column<int>(type: "integer", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {

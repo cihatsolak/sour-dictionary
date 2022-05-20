@@ -12,14 +12,14 @@ using SourDictionary.Infrastructure.Persistence.Context;
 namespace SourDictionary.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(SourDictionaryContext))]
-    [Migration("20220424182428_InitMigration")]
-    partial class InitMigration
+    [Migration("20220520110931_ChangeTableName")]
+    partial class ChangeTableName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -32,7 +32,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("NewEmailAddress")
                         .HasColumnType("text");
@@ -56,7 +56,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -82,7 +82,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -107,7 +107,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -132,7 +132,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -158,7 +158,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -183,7 +183,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -209,7 +209,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("EmailAddress")
                         .HasColumnType("text");

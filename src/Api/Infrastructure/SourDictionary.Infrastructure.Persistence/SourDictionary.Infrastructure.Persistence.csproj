@@ -22,4 +22,8 @@
     <ProjectReference Include="..\..\Core\SourDictionary.Api.Domain\SourDictionary.Api.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
