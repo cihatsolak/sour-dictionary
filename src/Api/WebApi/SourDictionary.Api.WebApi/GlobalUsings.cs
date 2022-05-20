@@ -8,3 +8,4 @@ global using System.Security.Claims;
 global using SourDictionary.Api.Application.Features.Commands.User.ConfirmEmail;
 global using SourDictionary.Common.Events.User;
 global using SourDictionary.Api.Application.Features.Queries.GetEntries;
+global using SourDictionary.Api.Application.Features.Queries.GetMainPageEntries;

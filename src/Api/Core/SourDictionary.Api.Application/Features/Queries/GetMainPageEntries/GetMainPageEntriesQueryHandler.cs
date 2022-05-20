@@ -1,6 +1,4 @@
-﻿using SourDictionary.Common.Infrastructure.Extensions;
-
-namespace SourDictionary.Api.Application.Features.Queries.GetMainPageEntries
+﻿namespace SourDictionary.Api.Application.Features.Queries.GetMainPageEntries
 {
     public class GetMainPageEntriesQueryHandler : IRequestHandler<GetMainPageEntriesQuery, PagedViewModel<GetEntryDetailViewModel>>
     {

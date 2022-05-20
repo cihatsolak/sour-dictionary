@@ -1,6 +1,4 @@
-﻿using SourDictionary.Api.Application.Features.Queries.GetMainPageEntries;
-
-namespace SourDictionary.Api.WebApi.Controllers
+﻿namespace SourDictionary.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
