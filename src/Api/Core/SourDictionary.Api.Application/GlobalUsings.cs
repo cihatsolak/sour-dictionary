@@ -1,4 +1,5 @@
 ﻿global using AutoMapper;
+global using AutoMapper.QueryableExtensions;
 global using FluentValidation;
 global using FluentValidation.Validators;
 global using MediatR;
@@ -14,8 +15,10 @@ global using SourDictionary.Common.Events.EntryComment;
 global using SourDictionary.Common.Events.User;
 global using SourDictionary.Common.Infrastructure;
 global using SourDictionary.Common.Infrastructure.Exceptions;
+global using SourDictionary.Common.Models.Page;
 global using SourDictionary.Common.Models.Queries;
 global using SourDictionary.Common.Models.RequestModels;
+global using SourDictionary.Common.ViewModels;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.Linq.Expressions;
 global using System.Reflection;
