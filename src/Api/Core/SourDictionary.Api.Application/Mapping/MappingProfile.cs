@@ -18,6 +18,9 @@
 
             CreateMap<CreateEntryCommentCommand, EntryComment>()
                 .ReverseMap();
+
+            CreateMap<Entry, GetEntriesViewModel>()
+                .ForMember(dest => dest.CommentCount, opt => opt.MapFrom(src => src.EntryComments.Count));
         }
     }
 }

@@ -11,6 +11,21 @@
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetEntries([FromQuery] GetEntiesQuery getEntiesQuery)
+        {
+            var entries = await _mediator.Send(getEntiesQuery);
+            return Ok(entries);
+        }
+
+        [HttpGet]
+        [Route("MainPageEntries")]
+        public async Task<IActionResult> GetMainPageEntries(int page, int pageSize)
+        {
+            var entries = await _mediator.Send(new GetMainPageEntriesQuery(Guid.NewGuid(), page, pageSize));
+            return Ok(entries);
+        }
+
         [HttpPost]
         [Route("CreateEntry")]
         public async Task<IActionResult> CreateEntry([FromBody] CreateEntryCommand command)

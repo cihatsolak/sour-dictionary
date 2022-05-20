@@ -17,7 +17,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -30,7 +30,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("NewEmailAddress")
                         .HasColumnType("text");
@@ -40,7 +40,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailConfirmation", "dbo");
+                    b.ToTable("emailconfirmation", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.Entry", b =>
@@ -54,7 +54,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -66,7 +66,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("CreatedById");
 
-                    b.ToTable("Entry", "dbo");
+                    b.ToTable("entry", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.EntryComment", b =>
@@ -80,7 +80,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -94,7 +94,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryId");
 
-                    b.ToTable("EntryComment", "dbo");
+                    b.ToTable("entrycomment", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.EntryCommentFavorite", b =>
@@ -105,7 +105,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -119,7 +119,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryCommentId");
 
-                    b.ToTable("EntryCommentFavorite", "dbo");
+                    b.ToTable("entrycommentfavorite", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.EntryCommentVote", b =>
@@ -130,7 +130,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -145,7 +145,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryCommentId");
 
-                    b.ToTable("EntryCommentVote", "dbo");
+                    b.ToTable("entrycommentvote", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.EntryFavorite", b =>
@@ -156,7 +156,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -170,7 +170,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryId");
 
-                    b.ToTable("EntryFavorite", "dbo");
+                    b.ToTable("entryfavorite", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.EntryVote", b =>
@@ -181,7 +181,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<Guid>("CreatedById")
                         .HasColumnType("uuid");
@@ -196,7 +196,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("EntryId");
 
-                    b.ToTable("EntryVote", "dbo");
+                    b.ToTable("entryvote", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.User", b =>
@@ -207,7 +207,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("EmailAddress")
                         .HasColumnType("text");
@@ -229,7 +229,7 @@ namespace SourDictionary.Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User", "dbo");
+                    b.ToTable("user", "dbo");
                 });
 
             modelBuilder.Entity("SourDictionary.Api.Domain.Models.Entry", b =>
