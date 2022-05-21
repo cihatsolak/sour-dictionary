@@ -19,8 +19,4 @@
     <ProjectReference Include="..\SourDictionary.Api.Domain\SourDictionary.Api.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Queries\SearchBySubject\" />
-  </ItemGroup>
-
 </Project>
