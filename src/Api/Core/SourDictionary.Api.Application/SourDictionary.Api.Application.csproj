@@ -20,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Queries\GetUserDetail\" />
-    <Folder Include="Features\Queries\GetUserEntries\" />
     <Folder Include="Features\Queries\SearchBySubject\" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+
         public GetUserDetailQueryHandler(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
