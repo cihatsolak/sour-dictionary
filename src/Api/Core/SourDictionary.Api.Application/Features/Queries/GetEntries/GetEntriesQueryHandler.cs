@@ -1,11 +1,11 @@
 ﻿namespace SourDictionary.Api.Application.Features.Queries.GetEntries
 {
-    public class GetEntiesQueryHandler : IRequestHandler<GetEntiesQuery, List<GetEntriesViewModel>>
+    public class GetEntriesQueryHandler : IRequestHandler<GetEntriesQuery, List<GetEntriesViewModel>>
     {
         private readonly IEntryRepository _entryRepository;
         private readonly IMapper _mapper;
 
-        public GetEntiesQueryHandler(
+        public GetEntriesQueryHandler(
             IEntryRepository entryRepository,
             IMapper mapper)
         {
@@ -13,7 +13,7 @@
             _mapper = mapper;
         }
 
-        public async Task<List<GetEntriesViewModel>> Handle(GetEntiesQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetEntriesViewModel>> Handle(GetEntriesQuery request, CancellationToken cancellationToken)
         {
             var query = _entryRepository.AsQueryable();
 
