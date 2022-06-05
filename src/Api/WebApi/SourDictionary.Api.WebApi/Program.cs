@@ -1,13 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers()
+builder.Services
+    .AddControllers(opt => opt.Filters.Add<ValidateModelStateFilter>())
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
     })
     .AddFluentValidation();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.ConfigureAuth(builder.Configuration);
 
 builder.Services.AddApplicationRegistiration();
 builder.Services.AddInfrastructureRegistiration(builder.Configuration);
