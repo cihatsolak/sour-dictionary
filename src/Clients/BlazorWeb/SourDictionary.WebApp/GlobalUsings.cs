@@ -8,3 +8,5 @@ global using SourDictionary.Common.Infrastructure.Exceptions;
 global using SourDictionary.Common.Infrastructure.Results;
 global using SourDictionary.Common.Models.Queries;
 global using System.Text.Json;
+global using SourDictionary.Common.Models.Page;
+global using SourDictionary.Common.Models.RequestModels;
