@@ -7,17 +7,20 @@
             bool useDefaultHandlingResponse = true,
             Func<HttpContext, Exception, Task> handleException = null)
         {
-            app.Run(context =>
+            app.UseExceptionHandler(applicationBuilder =>
             {
-                var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+                applicationBuilder.Run(httpContext =>
+                {
+                    var exceptionHandlerFeature = httpContext.Features.Get<IExceptionHandlerFeature>();
 
-                if (!useDefaultHandlingResponse && handleException is null)
-                    throw new ArgumentNullException(nameof(handleException), $"{nameof(handleException)} cannot be null when {nameof(useDefaultHandlingResponse)} is false");
+                    if (!useDefaultHandlingResponse && handleException is null)
+                        throw new ArgumentNullException(nameof(handleException), $"{nameof(handleException)} cannot be null when {nameof(useDefaultHandlingResponse)} is false");
 
-                if (!useDefaultHandlingResponse && handleException is not null)
-                    return handleException(context, exceptionHandlerFeature.Error);
+                    if (!useDefaultHandlingResponse && handleException is not null)
+                        return handleException(httpContext, exceptionHandlerFeature.Error);
 
-                return DefaultHandleExceptionAsync(context, exceptionHandlerFeature.Error, includeExceptionDetails);
+                    return DefaultHandleExceptionAsync(httpContext, exceptionHandlerFeature.Error, includeExceptionDetails);
+                });
             });
 
             return app;
