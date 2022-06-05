@@ -17,5 +17,13 @@ builder.Services.AddScoped(sp =>
     return clientFactory.CreateClient("WebApiClient");
 });
 
+builder.Services.AddTransient<IEntryService, EntryService>();
+builder.Services.AddTransient<IVoteService, VoteService>();
+builder.Services.AddTransient<IFavService, FavService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IIdentityService, IdentityService>();
+
+
+builder.Services.AddBlazoredLocalStorage();
 
 await builder.Build().RunAsync();
