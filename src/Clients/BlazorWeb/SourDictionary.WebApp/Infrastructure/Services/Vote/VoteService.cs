@@ -2,23 +2,23 @@
 {
     public class VoteService : IVoteService
     {
-        private readonly HttpClient client;
+        private readonly HttpClient _client;
 
         public VoteService(HttpClient client)
         {
-            this.client = client;
+            _client = client;
         }
 
         public async Task DeleteEntryVoteAsync(Guid entryId)
         {
-            var httpResponseMessage = await client.PostAsync($"/api/Vote/DeleteEntryVote/{entryId}", null);
+            var httpResponseMessage = await _client.PostAsync($"/api/Vote/DeleteEntryVote/{entryId}", null);
             if (!httpResponseMessage.IsSuccessStatusCode)
                 throw new Exception("DeleteEntryVote error");
         }
 
         public async Task DeleteEntryCommentVoteAsync(Guid entryCommentId)
         {
-            var httpResponseMessage = await client.PostAsync($"/api/Vote/DeleteEntryCommentVote/{entryCommentId}", null);
+            var httpResponseMessage = await _client.PostAsync($"/api/Vote/DeleteEntryCommentVote/{entryCommentId}", null);
 
             if (!httpResponseMessage.IsSuccessStatusCode)
                 throw new Exception("DeleteEntryCommentVote error");
@@ -47,14 +47,14 @@
 
         private async Task<HttpResponseMessage> CreateEntryVoteAsync(Guid entryId, VoteType voteType = VoteType.UpVote)
         {
-            var result = await client.PostAsync($"/api/vote/entry/{entryId}?voteType={voteType}", null);
+            var result = await _client.PostAsync($"/api/vote/entry/{entryId}?voteType={voteType}", null);
             // TODO Check success code
             return result;
         }
 
         private async Task<HttpResponseMessage> CreateEntryCommentVoteAsync(Guid entryCommentId, VoteType voteType = VoteType.UpVote)
         {
-            var result = await client.PostAsync($"/api/vote/entrycomment/{entryCommentId}?voteType={voteType}", null);
+            var result = await _client.PostAsync($"/api/vote/entrycomment/{entryCommentId}?voteType={voteType}", null);
             // TODO Check success code
             return result;
         }

@@ -17,4 +17,5 @@ builder.Services.AddScoped(sp =>
     return clientFactory.CreateClient("WebApiClient");
 });
 
+
 await builder.Build().RunAsync();

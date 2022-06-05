@@ -2,3 +2,9 @@
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using SourDictionary.WebApp;
 global using SourDictionary.Common.ViewModels;
+global using System.Net.Http.Json;
+global using SourDictionary.Common.Events.User;
+global using SourDictionary.Common.Infrastructure.Exceptions;
+global using SourDictionary.Common.Infrastructure.Results;
+global using SourDictionary.Common.Models.Queries;
+global using System.Text.Json;
