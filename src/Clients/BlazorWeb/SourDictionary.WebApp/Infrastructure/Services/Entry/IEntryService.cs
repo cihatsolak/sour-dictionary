@@ -1,5 +1,4 @@
-﻿
-namespace SourDictionary.WebApp.Infrastructure.Services.Entry
+﻿namespace SourDictionary.WebApp.Infrastructure.Services.Entry
 {
     public interface IEntryService
     {

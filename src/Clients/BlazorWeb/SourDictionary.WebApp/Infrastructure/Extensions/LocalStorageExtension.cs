@@ -31,7 +31,6 @@
             await localStorageService.SetItemAsync(UserName, value);
         }
 
-
         public static Guid GetUserId(this ISyncLocalStorageService localStorageService)
         {
             return localStorageService.GetItem<Guid>(UserId);
@@ -51,7 +50,6 @@
         {
             return await localStorageService.GetItemAsync<Guid>(UserId);
         }
-
 
         public static string GetToken(this ISyncLocalStorageService localStorageService)
         {

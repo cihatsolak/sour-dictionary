@@ -44,7 +44,6 @@
             await CreateEntryCommentVoteAsync(entryCommentId, VoteType.DownVote);
         }
 
-
         private async Task<HttpResponseMessage> CreateEntryVoteAsync(Guid entryId, VoteType voteType = VoteType.UpVote)
         {
             var result = await _client.PostAsync($"/api/vote/entry/{entryId}?voteType={voteType}", null);

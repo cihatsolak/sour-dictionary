@@ -3,8 +3,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(serviceProvider => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
 builder.Services.AddHttpClient("WebApiClient", httpClient =>
 {
     string serviceUri = builder.Configuration.GetValue<string>("WebApiClient:ServiceUri");

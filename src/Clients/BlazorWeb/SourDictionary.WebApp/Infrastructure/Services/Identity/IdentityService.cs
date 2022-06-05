@@ -60,7 +60,7 @@
                 //TODO Check after auth
                 //((AuthStateProvider)authStateProvider).NotifyUserLogin(response.UserName, response.Id);
 
-                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", response.UserName);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", response.UserName);
 
                 return true;
             }

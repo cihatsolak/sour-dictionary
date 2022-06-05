@@ -1,5 +1,4 @@
-﻿
-namespace SourDictionary.WebApp.Infrastructure.Services.Identity
+﻿namespace SourDictionary.WebApp.Infrastructure.Services.Identity
 {
     public interface IIdentityService
     {

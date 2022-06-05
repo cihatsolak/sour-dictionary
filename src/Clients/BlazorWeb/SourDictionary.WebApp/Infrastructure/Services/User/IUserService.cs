@@ -1,11 +1,10 @@
-﻿
-namespace SourDictionary.WebApp.Infrastructure.Services.User
+﻿namespace SourDictionary.WebApp.Infrastructure.Services.User
 {
     public interface IUserService
     {
-        ValueTask<bool> ChangeUserPassword(string oldPassword, string newPassword);
-        Task<UserDetailViewModel> GetUserDetail(Guid? id);
-        Task<UserDetailViewModel> GetUserDetail(string userName);
-        ValueTask<bool> UpdateUser(UserDetailViewModel user);
+        ValueTask<bool> ChangeUserPasswordAsync(string oldPassword, string newPassword);
+        Task<UserDetailViewModel> GetUserDetailAsync(Guid? id);
+        Task<UserDetailViewModel> GetUserDetailAsync(string userName);
+        ValueTask<bool> UpdateUserAsync(UserDetailViewModel user);
     }
 }

@@ -18,3 +18,4 @@ global using SourDictionary.WebApp.Infrastructure.Services.Fav;
 global using SourDictionary.WebApp.Infrastructure.Services.Identity;
 global using SourDictionary.WebApp.Infrastructure.Services.User;
 global using SourDictionary.WebApp.Infrastructure.Services.Vote;
+global using System.Net.Http.Headers;

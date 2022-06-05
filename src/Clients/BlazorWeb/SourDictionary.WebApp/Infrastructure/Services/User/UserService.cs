@@ -9,25 +9,25 @@
             _client = client;
         }
 
-        public async Task<UserDetailViewModel> GetUserDetail(Guid? id)
+        public async Task<UserDetailViewModel> GetUserDetailAsync(Guid? id)
         {
             var userDetail = await _client.GetFromJsonAsync<UserDetailViewModel>($"/api/user/{id}");
             return userDetail;
         }
 
-        public async Task<UserDetailViewModel> GetUserDetail(string userName)
+        public async Task<UserDetailViewModel> GetUserDetailAsync(string userName)
         {
             var userDetail = await _client.GetFromJsonAsync<UserDetailViewModel>($"/api/user/username/{userName}");
             return userDetail;
         }
 
-        public async ValueTask<bool> UpdateUser(UserDetailViewModel user)
+        public async ValueTask<bool> UpdateUserAsync(UserDetailViewModel user)
         {
             var res = await _client.PostAsJsonAsync($"/api/user/update", user);
             return res.IsSuccessStatusCode;
         }
 
-        public async ValueTask<bool> ChangeUserPassword(string oldPassword, string newPassword)
+        public async ValueTask<bool> ChangeUserPasswordAsync(string oldPassword, string newPassword)
         {
             ChangeUserPasswordCommand command = new(null, oldPassword, newPassword);
             var httpResponseMessage = await _client.PostAsJsonAsync($"/api/User/ChangePassword", command);
