@@ -9,3 +9,4 @@ global using System.Text.Json;
 global using SourDictionary.Common.ViewModels;
 global using SourDictionary.Common.Models.Page;
 global using Microsoft.EntityFrameworkCore;
+global using System.Text.Json.Serialization;
