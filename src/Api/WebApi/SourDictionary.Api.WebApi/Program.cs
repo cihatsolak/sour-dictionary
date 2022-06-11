@@ -6,15 +6,16 @@ builder.Services
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
     })
-    .AddFluentValidation();
+    .AddFluentValidation()
+    .ConfigureApiBehaviorOptions(o => o.SuppressModelStateInvalidFilter = true);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.ConfigureAuth(builder.Configuration);
-
 builder.Services.AddApplicationRegistiration();
 builder.Services.AddInfrastructureRegistiration(builder.Configuration);
+
+builder.Services.ConfigureAuth(builder.Configuration);
 
 builder.Services.AddCors(o => o.AddPolicy("SourDictionaryWebApp", builder =>
 {

@@ -6,11 +6,13 @@
         {
             if (!context.ModelState.IsValid)
             {
-                var messages = context.ModelState.Values.SelectMany(modelStateEntry => modelStateEntry.Errors)
-                                                        .Select(modelError => !string.IsNullOrEmpty(modelError.ErrorMessage) ?
-                                                                modelError.ErrorMessage : modelError.Exception?.Message)
+                var messages = context.ModelState.Values.SelectMany(x => x.Errors)
+                                                        .Select(x => !string.IsNullOrEmpty(x.ErrorMessage) ?
+                                                                x.ErrorMessage : x.Exception?.Message)
                                                         .Distinct().ToList();
 
+                var result = new ValidationResponseModel(messages);
+                context.Result = new BadRequestObjectResult(result);
 
                 return;
             }

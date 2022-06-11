@@ -2,6 +2,7 @@
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class VoteController : BaseController
     {
         private readonly IMediator _mediator;
