@@ -4,11 +4,16 @@
     {
         private readonly HttpClient _httpClient;
         private readonly ISyncLocalStorageService _localStorage;
+        private readonly AuthenticationStateProvider _authenticationStateProvider;
 
-        public IdentityService(HttpClient httpClient, ISyncLocalStorageService localStorage)
+        public IdentityService(
+            HttpClient httpClient, 
+            ISyncLocalStorageService localStorage,
+            AuthenticationStateProvider authenticationStateProvider)
         {
             _httpClient = httpClient;
             _localStorage = localStorage;
+            _authenticationStateProvider = authenticationStateProvider;
         }
 
 
@@ -21,7 +26,7 @@
 
         public string GetUserName()
         {
-            return _localStorage.GetToken(); 
+            return _localStorage.GetToken();
         }
 
         public Guid GetUserId()
@@ -57,8 +62,7 @@
                 _localStorage.SetUsername(response.UserName);
                 _localStorage.SetUserId(response.Id);
 
-                //TODO Check after auth
-                //((AuthStateProvider)authStateProvider).NotifyUserLogin(response.UserName, response.Id);
+                ((AuthStateProvider)_authenticationStateProvider).NotifyUserLogin(response.UserName, response.Id);
 
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", response.UserName);
 
@@ -74,8 +78,7 @@
             _localStorage.RemoveItem(LocalStorageExtension.UserName);
             _localStorage.RemoveItem(LocalStorageExtension.UserId);
 
-            // TODO Check after auth
-            //((AuthStateProvider)authStateProvider).NotifyUserLogout();
+            ((AuthStateProvider)_authenticationStateProvider).NotifyUserLogout();
             _httpClient.DefaultRequestHeaders.Authorization = null;
         }
     }
