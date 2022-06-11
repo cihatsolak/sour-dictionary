@@ -7,7 +7,7 @@ builder.Services.AddHttpClient("WebApiClient", httpClient =>
 {
     string serviceUri = builder.Configuration.GetValue<string>("WebApiClient:ServiceUri");
     httpClient.BaseAddress = new Uri(serviceUri);
-});
+}).AddHttpMessageHandler<AuthTokenHandler>();
 
 builder.Services.AddScoped(sp =>
 {
@@ -22,6 +22,7 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IIdentityService, IdentityService>();
 
 builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
+builder.Services.AddScoped<AuthTokenHandler>();
 
 builder.Services.AddBlazoredLocalStorage();
 

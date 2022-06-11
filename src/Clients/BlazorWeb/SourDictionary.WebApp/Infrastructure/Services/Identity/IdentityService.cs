@@ -44,7 +44,12 @@
                 if (httpResponseMessage.StatusCode == HttpStatusCode.BadRequest)
                 {
                     responseMessage = await httpResponseMessage.Content.ReadAsStringAsync();
-                    var validation = JsonSerializer.Deserialize<ValidationResponseModel>(responseMessage);
+                    
+                    var validation = JsonSerializer.Deserialize<ValidationResponseModel>(responseMessage, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
                     responseMessage = validation.FlattenErrors;
                     throw new DatabaseValidationException(responseMessage);
                 }
