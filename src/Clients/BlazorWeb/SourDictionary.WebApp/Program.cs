@@ -21,7 +21,10 @@ builder.Services.AddTransient<IFavService, FavService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IIdentityService, IdentityService>();
 
+builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
 
 builder.Services.AddBlazoredLocalStorage();
+
+builder.Services.AddAuthorizationCore();
 
 await builder.Build().RunAsync();
