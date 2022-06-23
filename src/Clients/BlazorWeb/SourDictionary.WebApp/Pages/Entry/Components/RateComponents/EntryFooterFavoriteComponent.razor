@@ -1,17 +1,10 @@
-﻿<h3>EntryFooterFavoriteComponent</h3>
-@if (identityService.IsLoggedIn)
-{
-    <span class="entry-fav @(IsFavorited ? "entry-faved" : "entry-not-faved") p-3">
-        <span @onclick="(() => FavoritedClicked())">
-            @FavoritedCount
-        </span>
+﻿<span class="entry-fav @(IsFavorited ? "entry-faved" : "entry-not-faved") p-3">
+    <span @onclick="(() => FavoritedClicked())">
+        @FavoritedCount
     </span>
-}
+</span>
 
 @code {
-    [Inject]
-    IIdentityService identityService { get; set; }
-
     [Parameter]
     public bool IsFavorited { get; set; }
 
