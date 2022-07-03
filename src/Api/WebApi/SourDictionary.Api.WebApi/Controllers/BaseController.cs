@@ -4,7 +4,15 @@
     [ApiController]
     public class BaseController : ControllerBase
     {
-        //public Guid UserId => new(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-        public Guid? UserId => Guid.NewGuid();
+        public Guid? UserId => GetUserId();
+
+        private Guid? GetUserId()
+        {
+            var claim = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim is null)
+                return default;
+
+            return Guid.Parse(claim.Value);
+        }
     }
 }
