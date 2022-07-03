@@ -26,4 +26,5 @@ global using SourDictionary.Common.Models.RequestModels;
 global using SourDictionary.Common.ViewModels;
 global using SourDictionary.Infrastructure.Persistence.Extensions;
 global using System.Net;
+global using System.Security.Claims;
 global using System.Text;
