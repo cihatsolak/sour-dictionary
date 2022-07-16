@@ -21,6 +21,9 @@
 
             CreateMap<Entry, GetEntriesViewModel>()
                 .ForMember(dest => dest.CommentCount, opt => opt.MapFrom(src => src.EntryComments.Count));
+
+            CreateMap<UserDetailViewModel, User>()
+            .ReverseMap();
         }
     }
 }

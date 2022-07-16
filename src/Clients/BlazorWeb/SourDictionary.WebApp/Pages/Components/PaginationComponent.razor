@@ -1,0 +1,36 @@
+﻿@if (TotalPage > 0 && CurrentPage > 0)
+{
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2">
+            <select class="form-select text-secondary" @onchange="Changed">
+                @for (int index = 1; index <= TotalPage; index++)
+                {
+                    if (CurrentPage == index)
+                    {
+                        <option value="@index" selected> @index </option>
+                    }
+                    else
+                    {
+                        <option value="@index"> @index </option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int TotalPage { get; set; }
+
+    [Parameter]
+    public int CurrentPage { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnPageChanged { get; set; }
+
+    private async Task Changed(ChangeEventArgs changeEventArgs)
+    {
+        await OnPageChanged.InvokeAsync(int.Parse(changeEventArgs.Value.ToString()));
+    }
+}
