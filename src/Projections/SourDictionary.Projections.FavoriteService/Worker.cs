@@ -1,3 +1,6 @@
+using SourDictionary.Common;
+using SourDictionary.Common.Infrastructure;
+
 namespace SourDictionary.Projections.FavoriteService
 {
     public class Worker : BackgroundService
@@ -11,11 +14,10 @@ namespace SourDictionary.Projections.FavoriteService
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(1000, stoppingToken);
-            }
+            QueueFactory.CreateBasicConsumer()
+            .EnsureExchange(DictionaryConstants.FavoriteExchangeName)
+            .EnsureQueue(DictionaryConstants.CreateEntryFavoriteQueueName, DictionaryConstants.FavoriteExchangeName)
+            .
         }
     }
 }
