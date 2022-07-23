@@ -56,5 +56,29 @@
 
             return consumer;
         }
+
+        public static EventingBasicConsumer Receive<TModel>(this EventingBasicConsumer consumer, Action<TModel> action)
+        {
+            consumer.Received += (m, eventArgs) =>
+            {
+                byte[] body = eventArgs.Body.ToArray();
+                string message = Encoding.UTF8.GetString(body);
+                TModel model = JsonSerializer.Deserialize<TModel>(message);
+
+                action(model);
+                consumer.Model.BasicAck(eventArgs.DeliveryTag, false);
+            };
+
+            return consumer;
+        }
+
+        public static EventingBasicConsumer StartConsuming(this EventingBasicConsumer consumer, string queueName)
+        {
+            consumer.Model.BasicConsume(queue: queueName,
+                                        autoAck: false,
+                                        consumer: consumer);
+
+            return consumer;
+        }
     }
 }
