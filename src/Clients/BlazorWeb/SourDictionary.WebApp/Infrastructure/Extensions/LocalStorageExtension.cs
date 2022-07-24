@@ -57,7 +57,7 @@
 
         public static void SetToken(this ISyncLocalStorageService localStorageService, string value)
         {
-            localStorageService.SetItem(TokenName, value);
+            localStorageService.SetItem(LocalStorage.TokenName, value);
         }
 
         public static async ValueTask SetTokenAsync(this ILocalStorageService localStorageService, string value)
