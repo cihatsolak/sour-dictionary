@@ -79,7 +79,7 @@
 
         public void Logout()
         {
-            _localStorage.RemoveItem(LocalStorageExtension.TokenName);
+            _localStorage.RemoveItem(LocalStorage.TokenName);
             _localStorage.RemoveItem(LocalStorageExtension.UserName);
             _localStorage.RemoveItem(LocalStorageExtension.UserId);
 
