@@ -3,24 +3,24 @@
     public class AuthStateProvider : AuthenticationStateProvider
     {
         private readonly ILocalStorageService _localStorage;
-        private readonly AuthenticationState anonymous;
+        private readonly AuthenticationState _anonymous;
 
         public AuthStateProvider(ILocalStorageService localStorage)
         {
             _localStorage = localStorage;
-            anonymous = new(new ClaimsPrincipal(new ClaimsIdentity()));
+            _anonymous = new(new ClaimsPrincipal(new ClaimsIdentity()));
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             string jwtToken = await _localStorage.GetTokenAsync();
             if (string.IsNullOrWhiteSpace(jwtToken))
-                return anonymous;
+                return _anonymous;
 
             JwtSecurityTokenHandler tokenHandler = new();
             JwtSecurityToken securityToken = tokenHandler.ReadJwtToken(jwtToken);
 
-            ClaimsPrincipal claimsPrincipal = new(new ClaimsIdentity(securityToken.Claims, "jwtAuthType"));
+            ClaimsPrincipal claimsPrincipal = new(new ClaimsIdentity(securityToken.Claims, AuthenticationType.JWT));
 
             return new AuthenticationState(claimsPrincipal);
         }
@@ -31,7 +31,7 @@
             {
                 new Claim(ClaimTypes.Name, userName),
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString())
-            }, "jwtAuthType"));
+            }, AuthenticationType.JWT));
 
             var authenticationState = Task.FromResult(new AuthenticationState(claimsPrincipal));
 
@@ -40,8 +40,7 @@
 
         public void NotifyUserLogout()
         {
-            var authState = Task.FromResult(anonymous);
-
+            var authState = Task.FromResult(_anonymous);
             NotifyAuthenticationStateChanged(authState);
         }
     }

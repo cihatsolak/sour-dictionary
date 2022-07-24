@@ -37,14 +37,14 @@
     public int FavoritedCount { get; set; } = 0;
 
     [Parameter]
-    public EventCallback<FavClickedEventArgs> OnFavClicked { get; set; }
+    public EventCallback<FavoriteClickedEventArgs> OnFavClicked { get; set; }
 
     [Parameter]
     public EventCallback<VoteClickedEventArgs> OnVoteClicked { get; set; }
 
     private async Task FavoritedClicked()
     {
-        var ea = new FavClickedEventArgs();
+        var ea = new FavoriteClickedEventArgs();
 
         ea.EntryId = EntryId.Value;
         ea.IsFaved = !IsFavorited;
