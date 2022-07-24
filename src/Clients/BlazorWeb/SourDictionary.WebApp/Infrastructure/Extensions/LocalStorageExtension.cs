@@ -2,7 +2,6 @@
 {
     public static class LocalStorageExtension
     {
-        public const string TokenName = "token";
         public const string UserName = "username";
         public const string UserId = "userid";
 
@@ -51,9 +50,9 @@
             return await localStorageService.GetItemAsync<Guid>(UserId);
         }
 
-        public static string GetToken(this ISyncLocalStorageService localStorageService) => localStorageService.GetItem<string>(TokenName);
+        public static string GetToken(this ISyncLocalStorageService localStorageService) => localStorageService.GetItem<string>(LocalStorage.TokenName);
 
-        public static async ValueTask<string> GetTokenAsync(this ILocalStorageService localStorageService) => await localStorageService.GetItemAsync<string>(TokenName);
+        public static async ValueTask<string> GetTokenAsync(this ILocalStorageService localStorageService) => await localStorageService.GetItemAsync<string>(LocalStorage.TokenName);
 
         public static void SetToken(this ISyncLocalStorageService localStorageService, string value)
         {
@@ -62,7 +61,7 @@
 
         public static async ValueTask SetTokenAsync(this ILocalStorageService localStorageService, string value)
         {
-            await localStorageService.SetItemAsync(TokenName, value);
+            await localStorageService.SetItemAsync(LocalStorage.TokenName, value);
         }
     }
 }
