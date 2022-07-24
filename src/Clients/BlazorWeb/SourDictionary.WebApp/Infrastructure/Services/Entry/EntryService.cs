@@ -28,8 +28,7 @@
 
         public async Task<PagedViewModel<GetEntryDetailViewModel>> GetProfilePageEntriesAsync(int page, int pageSize, string userName = null)
         {
-            var result = await _client.GetFromJsonAsync<PagedViewModel<GetEntryDetailViewModel>>($"/api/entry/UserEntries?userName={userName}&page={page}&pageSize={pageSize}");
-            return result;
+           return await _client.GetFromJsonAsync<PagedViewModel<GetEntryDetailViewModel>>($"/api/entry/UserEntries?userName={userName}&page={page}&pageSize={pageSize}");
         }
 
         public async Task<PagedViewModel<GetEntryCommentsViewModel>> GetEntryCommentsAsync(Guid entryId, int page, int pageSize)
