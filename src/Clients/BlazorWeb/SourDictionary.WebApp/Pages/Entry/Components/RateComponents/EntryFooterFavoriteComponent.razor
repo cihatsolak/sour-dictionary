@@ -15,13 +15,13 @@
     public int FavoritedCount { get; set; }
 
     [Parameter]
-    public EventCallback<FavClickedEventArgs> OnFavClicked { get; set; }
+    public EventCallback<FavoriteClickedEventArgs> OnFavClicked { get; set; }
 
     private async Task FavoritedClicked()
     {
         IsFavorited = !IsFavorited;
 
-        FavClickedEventArgs eventArgs =new ();
+        FavoriteClickedEventArgs eventArgs =new ();
         eventArgs.EntryId = EntryId;
         eventArgs.IsFaved = IsFavorited;
 

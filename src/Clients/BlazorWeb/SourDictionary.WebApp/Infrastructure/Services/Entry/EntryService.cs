@@ -18,14 +18,12 @@
 
         public async Task<GetEntryDetailViewModel> GetEntryDetailAsync(Guid entryId)
         {
-            var result = await _client.GetFromJsonAsync<GetEntryDetailViewModel>($"/api/entry/{entryId}");
-            return result;
+           return await _client.GetFromJsonAsync<GetEntryDetailViewModel>($"/api/entry/{entryId}");
         }
 
         public async Task<PagedViewModel<GetEntryDetailViewModel>> GetMainPageEntriesAsync(int page, int pageSize)
         {
-            var result = await _client.GetFromJsonAsync<PagedViewModel<GetEntryDetailViewModel>>($"/api/entry/mainpageentries?page={page}&pageSize={pageSize}");
-            return result;
+            return await _client.GetFromJsonAsync<PagedViewModel<GetEntryDetailViewModel>>($"/api/entry/mainpageentries?page={page}&pageSize={pageSize}");
         }
 
         public async Task<PagedViewModel<GetEntryDetailViewModel>> GetProfilePageEntriesAsync(int page, int pageSize, string userName = null)

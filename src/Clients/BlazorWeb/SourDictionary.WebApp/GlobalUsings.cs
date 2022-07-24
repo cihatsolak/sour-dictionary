@@ -23,3 +23,4 @@ global using System.Text.Json;
 global using System.Security.Claims;
 global using System.IdentityModel.Tokens.Jwt;
 global using SourDictionary.WebApp.Infrastructure.Auth;
+global using SourDictionary.WebApp.Infrastructure.Constants;

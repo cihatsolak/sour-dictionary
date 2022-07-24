@@ -30,7 +30,7 @@
     [Inject]
     IFavService favService { get; set; }
 
-    private async Task OnFavClicked(FavClickedEventArgs args)
+    private async Task OnFavClicked(FavoriteClickedEventArgs args)
     {
         if (args.IsFaved)
         {
