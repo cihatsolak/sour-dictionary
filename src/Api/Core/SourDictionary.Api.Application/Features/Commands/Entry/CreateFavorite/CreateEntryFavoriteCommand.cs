@@ -5,7 +5,7 @@
         public Guid? EntryId { get; set; }
         public Guid? UserId { get; set; }
 
-        public CreateEntryFavoriteCommand(Guid? entryId, Guid userId)
+        public CreateEntryFavoriteCommand(Guid? entryId, Guid? userId)
         {
             EntryId = entryId;
             UserId = userId;

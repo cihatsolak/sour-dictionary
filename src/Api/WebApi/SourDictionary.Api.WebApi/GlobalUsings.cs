@@ -7,7 +7,11 @@ global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.Filters;
 global using Microsoft.IdentityModel.Tokens;
 global using SourDictionary.Api.Application.Extensions;
+global using SourDictionary.Api.Application.Features.Commands.Entry.CreateFavorite;
+global using SourDictionary.Api.Application.Features.Commands.Entry.DeleteFavorite;
 global using SourDictionary.Api.Application.Features.Commands.Entry.DeleteVote;
+global using SourDictionary.Api.Application.Features.Commands.EntryComment.CreateFav;
+global using SourDictionary.Api.Application.Features.Commands.EntryComment.DeleteFavorite;
 global using SourDictionary.Api.Application.Features.Commands.EntryComment.DeleteVote;
 global using SourDictionary.Api.Application.Features.Commands.User.ConfirmEmail;
 global using SourDictionary.Api.Application.Features.Queries.GetEntries;
@@ -28,3 +32,4 @@ global using SourDictionary.Infrastructure.Persistence.Extensions;
 global using System.Net;
 global using System.Security.Claims;
 global using System.Text;
+
