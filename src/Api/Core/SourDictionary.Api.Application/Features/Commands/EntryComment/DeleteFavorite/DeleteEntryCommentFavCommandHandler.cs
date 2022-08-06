@@ -1,8 +1,8 @@
 ﻿namespace SourDictionary.Api.Application.Features.Commands.EntryComment.DeleteFavorite
 {
-    public class DeleteEntryCommentFavCommandHandler : IRequestHandler<DeleteEntryCommentFavCommand, bool>
+    public class DeleteEntryCommentFavCommandHandler : IRequestHandler<DeleteEntryCommentFavoriteCommand, bool>
     {
-        public async Task<bool> Handle(DeleteEntryCommentFavCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteEntryCommentFavoriteCommand request, CancellationToken cancellationToken)
         {
             QueueFactory.SendMessageToExchange(
                 exchangeName: DictionaryConstants.FavoriteExchangeName,

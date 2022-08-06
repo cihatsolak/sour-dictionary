@@ -25,9 +25,40 @@ namespace SourDictionary.Projections.VoteService
                 .Receive<CreateEntryVoteEvent>(createEntryVoteEvent =>
                 {
                     voteService.CreateEntryVoteAsync(createEntryVoteEvent).GetAwaiter().GetResult();
-                    _logger.LogInformation("Create Entry Received EntryId: {0}, VoteType: {1}", createEntryVoteEvent.EntryId, createEntryVoteEvent.VoteType);
+                    _logger.LogInformation("Create Entry Received EntryId: {@entryId}, VoteType: {@voteType}", createEntryVoteEvent.EntryId, createEntryVoteEvent.VoteType);
                 })
                 .StartConsuming(DictionaryConstants.CreateEntryVoteQueueName);
+
+            QueueFactory.CreateBasicConsumer()
+            .EnsureExchange(DictionaryConstants.VoteExchangeName)
+            .EnsureQueue(DictionaryConstants.DeleteEntryVoteQueueName, DictionaryConstants.VoteExchangeName)
+            .Receive<DeleteEntryVoteEvent>(deleteEntryVoteEvent =>
+            {
+                voteService.DeleteEntryVoteAsync(deleteEntryVoteEvent.EntryId, deleteEntryVoteEvent.CreatedBy).GetAwaiter().GetResult();
+                _logger.LogInformation("Delete Entry Received EntryId: {@entryId}", deleteEntryVoteEvent.EntryId);
+            })
+            .StartConsuming(DictionaryConstants.DeleteEntryVoteQueueName);
+
+
+            QueueFactory.CreateBasicConsumer()
+                    .EnsureExchange(DictionaryConstants.VoteExchangeName)
+                    .EnsureQueue(DictionaryConstants.CreateEntryCommentVoteQueueName, DictionaryConstants.VoteExchangeName)
+                    .Receive<CreateEntryCommentVoteEvent>(createEntryCommentVoteEvent =>
+                    {
+                        voteService.CreateEntryCommentVoteAsync(createEntryCommentVoteEvent).GetAwaiter().GetResult();
+                        _logger.LogInformation("Create Entry Comment Received EntryCommentId: {@entryCommentId}, VoteType: {@voteType}", createEntryCommentVoteEvent.EntryCommentId, createEntryCommentVoteEvent.VoteType);
+                    })
+                    .StartConsuming(DictionaryConstants.CreateEntryCommentVoteQueueName);
+
+            QueueFactory.CreateBasicConsumer()
+                    .EnsureExchange(DictionaryConstants.VoteExchangeName)
+                    .EnsureQueue(DictionaryConstants.DeleteEntryCommentVoteQueueName, DictionaryConstants.VoteExchangeName)
+                    .Receive<DeleteEntryCommentVoteEvent>(deleteEntryCommentVoteEvent =>
+                    {
+                        voteService.DeleteEntryCommentVoteAsync(deleteEntryCommentVoteEvent.EntryCommentId, deleteEntryCommentVoteEvent.CreatedBy).GetAwaiter().GetResult();
+                        _logger.LogInformation("Delete Entry Comment Received EntryCommentId: {@entryCommentId}", deleteEntryCommentVoteEvent.EntryCommentId);
+                    })
+                    .StartConsuming(DictionaryConstants.DeleteEntryCommentVoteQueueName);
         }
     }
 }
