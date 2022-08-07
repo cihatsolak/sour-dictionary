@@ -9,7 +9,7 @@
             _connectionString = connectionString;
         }
 
-        public async Task<Guid> CreateEmailConfirmation(UserEmailChangedEvent userEmailChangedEvent)
+        public async Task<Guid> CreateEmailConfirmationAsync(UserEmailChangedEvent userEmailChangedEvent)
         {
             Guid guid = Guid.NewGuid();
             using var connection = new SqlConnection(_connectionString);
