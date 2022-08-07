@@ -1,9 +1,9 @@
-using SourDictionary.Projections.UserService;
-
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AddHostedService<Worker>();
+
+        services.AddTransient<UserService>();
     })
     .Build();
 
