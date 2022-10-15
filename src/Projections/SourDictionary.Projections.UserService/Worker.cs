@@ -23,17 +23,10 @@ namespace SourDictionary.Projections.UserService
                 .EnsureQueue(DictionaryConstants.UserEmailChangedQueueName, DictionaryConstants.UserExchangeName)
                 .Receive<UserEmailChangedEvent>(user =>
                 {
-                    // DB Insert 
-
                     Guid confirmationId = _userService.CreateEmailConfirmationAsync(user).GetAwaiter().GetResult();
+                    string link = _emailService.GenerateConfirmationLink(confirmationId);
 
-                    // Generate Link
-
-                    var link = _emailService.GenerateConfirmationLink(confirmationId);
-
-                    // Send Email
-
-                    _emailService.SendEmail(user.NewEmailAddress, link).GetAwaiter().GetResult();
+                    _emailService.SendEmailAsync(user.NewEmailAddress, link).GetAwaiter().GetResult();
                 })
                 .StartConsuming(DictionaryConstants.UserEmailChangedQueueName);
         }
