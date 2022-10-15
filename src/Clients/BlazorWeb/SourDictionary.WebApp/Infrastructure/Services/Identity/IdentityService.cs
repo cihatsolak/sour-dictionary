@@ -69,7 +69,7 @@
 
                 ((AuthStateProvider)_authenticationStateProvider).NotifyUserLogin(response.UserName, response.Id);
 
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", response.UserName);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", response.Token);
 
                 return true;
             }
