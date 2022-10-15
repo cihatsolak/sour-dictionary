@@ -4,6 +4,8 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+		<UserSecretsId>84fc494b-cd23-4c1f-8c5d-674c69d8f1dc</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,6 +20,10 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Common\SourDictionary.Common\SourDictionary.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
 	</ItemGroup>
 
 </Project>

@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  sourdictionary.api.webapi:
+    image: ${DOCKER_REGISTRY-}sourdictionaryapiwebapi
+    build:
+      context: .
+      dockerfile: src/Api/WebApi/SourDictionary.Api.WebApi/Dockerfile
+
+  sourdictionary.webapp:
+    image: ${DOCKER_REGISTRY-}sourdictionarywebapp
+    build:
+      context: .
+      dockerfile: src/Clients/BlazorWeb/SourDictionary.WebApp/Dockerfile
+
+  sourdictionary.projections.voteservice:
+    image: ${DOCKER_REGISTRY-}sourdictionaryprojectionsvoteservice
+    build:
+      context: .
+      dockerfile: src/Projections/SourDictionary.Projections.VoteService/Dockerfile
+
+
+  sourdictionary.projections.userservice:
+    image: ${DOCKER_REGISTRY-}sourdictionaryprojectionsuserservice
+    build:
+      context: .
+      dockerfile: src/Projections/SourDictionary.Projections.UserService/Dockerfile
+
+
+  sourdictionary.projections.favoriteservice:
+    image: ${DOCKER_REGISTRY-}sourdictionaryprojectionsfavoriteservice
+    build:
+      context: .
+      dockerfile: src/Projections/SourDictionary.Projections.FavoriteService/Dockerfile
